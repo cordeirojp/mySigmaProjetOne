@@ -10,8 +10,8 @@ exports.handler = function (event, context, callback) {
     // console.log("Sending message", message, "to receiver", receiver);
 
     //AWS.mock('SNS', 'publish', function (params, callback){
-  callback(null, "successfully sent");
-});
+  //callback(null, "successfully sent");
+//});
 
     sns.publish({
         Message: message,
