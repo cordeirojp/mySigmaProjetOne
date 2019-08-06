@@ -1,4 +1,4 @@
-let AWS = require('aws-sdk');
+let AWS = require('aws-sdk-mock');
 const sns = new AWS.SNS();
 
 exports.handler = function (event, context, callback) {
@@ -8,6 +8,10 @@ exports.handler = function (event, context, callback) {
     let sender = event['sender'];
     let message = event['message'];
     // console.log("Sending message", message, "to receiver", receiver);
+
+    AWS.mock('SNS', 'publish', function (params, callback){
+  callback(null, "successfully sent");
+});
 
     sns.publish({
         Message: message,
