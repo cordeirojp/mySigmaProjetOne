@@ -7,7 +7,7 @@ exports.handler = function (event, context, callback) {
     let receiver = event['receiver'];
     let sender = event['sender'];
     let message = event['message'];
-    console.log("Sending message", message, "to receiver", receiver);
+    // console.log("Sending message", message, "to receiver", receiver);
 
     sns.publish({
         Message: message,
@@ -24,11 +24,11 @@ exports.handler = function (event, context, callback) {
         PhoneNumber: receiver
     }).promise()
         .then(data => {
-            console.log("Sent message to", receiver);
+            console.log("message", message, "sent to receiver", receiver);
             callback(null, data);
         })
         .catch(err => {
-            console.log("Sending failed", err);
+            console.log("Sending failed", err,"message", message, "to receiver", receiver );
             callback(err);
         });
 
