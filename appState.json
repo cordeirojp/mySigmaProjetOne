@@ -1,0 +1,75 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "fe0e3a10-bd3a-4cec-b8c1-98a6a779f78b": {
+        "id": "fe0e3a10-bd3a-4cec-b8c1-98a6a779f78b",
+        "parent": null,
+        "name": "mySigmaProjetOne",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "5d072725-19e2-400c-a1cb-4a0d9ae8d775"
+        ],
+        "isRemovable": false,
+        "filePath": "mySigmaProjetOne"
+      },
+      "5d072725-19e2-400c-a1cb-4a0d9ae8d775": {
+        "id": "5d072725-19e2-400c-a1cb-4a0d9ae8d775",
+        "parent": "fe0e3a10-bd3a-4cec-b8c1-98a6a779f78b",
+        "name": "lambda.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "mySigmaProjetOne/lambda.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": []
+      }
+    },
+    "deletedFiles": [],
+    "rootNode": "fe0e3a10-bd3a-4cec-b8c1-98a6a779f78b",
+    "openFiles": [],
+    "currentFileId": "5d072725-19e2-400c-a1cb-4a0d9ae8d775",
+    "resources": {},
+    "customTemplate": {
+      "dialect": null,
+      "definitions": {}
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {}
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "mySigmaProjetOne",
+    "projectDescription": "essai",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1565079619770
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "mySigmaProjetOne",
+      "url": "https://github.com/cordeirojp/mySigmaProjetOne"
+    }
+  }
+}
