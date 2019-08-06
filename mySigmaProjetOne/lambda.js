@@ -1,4 +1,5 @@
-let AWS = require('aws-sdk-mock');
+//let AWS = require('aws-sdk-mock');
+import AWS from ‘aws-sdk-mock’;
 const sns = new AWS.SNS();
 
 exports.handler = function (event, context, callback) {
