@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "mySigmaProjetOne/lambda.js",
-        "code": "var AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n    debugger;\n\n    let receiver = event['receiver'];\n    let sender = event['sender'];\n    let message = event['message'];\n    // console.log(\"Sending message\", message, \"to receiver\", receiver);\n\n    //AWS.mock('SNS', 'publish', function (params, callback){\n  //callback(null, \"successfully sent\");\n//});\n\n    sns.publish({\n        Message: message,\n        MessageAttributes: {\n            'AWS.SNS.SMS.SMSType': {\n                'DataType': 'String',\n                'StringValue': 'Transactional'\n            },\n            'AWS.SNS.SMS.SenderID': {\n                'DataType': 'String',\n                'StringValue': sender\n            }\n        },\n        PhoneNumber: receiver\n    }).promise()\n        .then(data => {\n            console.log(\"message\", message, \"sent to receiver\", receiver);\n            callback(null, data);\n        })\n        .catch(err => {\n            console.log(\"Sending failed\", err,\"message\", message, \"to receiver\", receiver );\n            callback(err);\n        });\n\n    //AWS.restore('SNS', 'publish');\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n    debugger;\n\n    let receiver = event['receiver'];\n    let sender = event['sender'];\n    let message = event['message'];\n\n    sns.publish({\n        Message: message,\n        MessageAttributes: {\n            'AWS.SNS.SMS.SMSType': {\n                'DataType': 'String',\n                'StringValue': 'Transactional'\n            },\n            'AWS.SNS.SMS.SenderID': {\n                'DataType': 'String',\n                'StringValue': sender\n            }\n        },\n        PhoneNumber: receiver\n    }).promise()\n        .then(data => {\n            console.log(\"message\", message, \"sent to receiver\", receiver);\n            callback(null, data);\n        })\n        .catch(err => {\n            console.log(\"Sending failed\", err,\"message\", message, \"to receiver\", receiver );\n            callback(err);\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -41,7 +41,7 @@
             "id": "4b0a2640-801b-4ab2-b6fa-e8ee7de41360",
             "name": "test case",
             "functionId": "5d072725-19e2-400c-a1cb-4a0d9ae8d775",
-            "event": "{\n \"receiver\": \"+33682801103\",\n \"sender\": \"MySMS\",\n \"message\": \"Hello Test Message\"\n}"
+            "event": "{\n \"receiver\": \"+33682801103\",\n \"sender\": \"MySMS\",\n \"message\": \"A problem ?\"\n}"
           }
         }
       }
@@ -116,7 +116,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1565090899673
+    "lastSave": 1565091426181
   },
   "VCS_STATE": {
     "provider": "GitHub",
